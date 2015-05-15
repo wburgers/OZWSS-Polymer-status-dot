@@ -1,0 +1,27 @@
+{
+  "name": "OZWSS-Polymer-status-dot",
+  "version": "0.0.1",
+  "homepage": "https://github.com/wburgers/OZWSS-Polymer-status-dot",
+  "description": "status-dot element for the OZWSS Polymer client",
+  "main": "index.html",
+  "authors": [
+    "Willem Burgers"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#~0.9.0"
+  },
+  "resolutions": {
+    "webcomponentsjs": "^0.7.0"
+  },
+  "devDependencies": {
+    "iron-doc-viewer": "PolymerElements/iron-doc-viewer#~0.9.0"
+  }
+}
