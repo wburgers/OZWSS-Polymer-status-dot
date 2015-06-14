@@ -18,9 +18,6 @@
   "dependencies": {
     "polymer": "Polymer/polymer#~1.0.0"
   },
-  "resolutions": {
-    "webcomponentsjs": "^0.7.0"
-  },
   "devDependencies": {
     "iron-doc-viewer": "PolymerElements/iron-doc-viewer#~1.0.0"
   }
