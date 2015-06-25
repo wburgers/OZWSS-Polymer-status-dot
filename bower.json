@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "homepage": "https://github.com/wburgers/OZWSS-Polymer-status-dot",
   "description": "status-dot element for the OZWSS Polymer client",
-  "main": "index.html",
+  "main": "OZWSS-Polymer-status-dot.html",
   "authors": [
     "Willem Burgers"
   ],
@@ -11,14 +11,12 @@
   "ignore": [
     "**/.*",
     "node_modules",
-    "bower_components",
-    "test",
-    "tests"
+    "bower_components"
   ],
   "dependencies": {
     "polymer": "Polymer/polymer#~1.0.0"
   },
   "devDependencies": {
-    "iron-doc-viewer": "PolymerElements/iron-doc-viewer#~1.0.0"
+    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0"
   }
 }
