@@ -53,7 +53,7 @@
 			<br>
 			<span id="dot"><span id="dot-inner"></span></span>
 			<br>
-			<span>{{status}}</span>
+			<span>{{_statusstring}}</span>
 			<content></content>
 		</center>
 	</template>
@@ -63,16 +63,37 @@
 	Polymer({
 		is: "OZWSS-Polymer-status-dot",
 		properties: {
-			status: "Off",
-			color: {
+			name: {
+				type: String,
+				value: "Status-dot"
+			},
+			websocketstatus: {
+				type: Number,
+				value: -1,
+				observer: "_statusChange"
+			},
+			_statusstring: {
+				type: String,
+				value: "Off"
+			},
+			_color: {
 				type: String,
 				value: "grey",
 				observer: "_colorChange"
-			},
-			name: "Status-dot",
+			}
 		},
 		_colorChange: function () {
-			this.$.dot.style.background = this.color;
+			this.$.dot.style.background = this._color;
 		},
+		_statusChange: function() {
+			if(!this.websocketstatus) {
+				this.set("_statusstring", "Connected");
+				this.set("_color", "green");
+			}
+			else {
+				this.set("_statusstring", "Disconnected");
+				this.set("_color", "red");
+			}
+		}
 	});
 </script>

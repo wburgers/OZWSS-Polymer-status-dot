@@ -5,9 +5,32 @@
 		<meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
 		<title>OZWSS-Polymer-status-dot Demo</title>
 		<script src="../../webcomponentsjs/webcomponents-lite.min.js"></script>
+		<link rel="import" href="../../polymer/polymer.html">
+		<link rel="import" href="../../websocket-component/websocket-component.html">
 		<link rel="import" href="../OZWSS-Polymer-status-dot.html">
 	</head>
 	<body style="font-family: 'Roboto2', sans-serif; font-size: 1em;">
-		<OZWSS-Polymer-status-dot id="status-dot" name="Example" status="Connected" color="red"></OZWSS-Polymer-status-dot>
+		<template is="dom-bind" id="demo">
+			<OZWSS-Polymer-status-dot id="status-dot" name="Websocket-Status" websocketstatus="[[wsStatus]]"></OZWSS-Polymer-status-dot>
+			<websocket-component url="{{wsUrl}}" protocols="{{wsProtocols}}" status="{{wsStatus}}" auto></websocket-component>
+		</template>
+
+		<script>
+			var demo = document.querySelector("#demo");
+			var wsElement;
+			var statusDot;
+			demo.addEventListener('dom-change', function() {
+				wsElement = document.querySelector("websocket-component");
+  		});
+			window.addEventListener('WebComponentsReady', function() {
+				demo.wsUrl = "wss://echo.websocket.org";
+			});
+			document.addEventListener('websocket-message', function(event) {
+				console.log("Message received from echo websocket server:", event.detail.data);
+			});
+			document.addEventListener('websocket-open', function() {
+				wsElement.send("test");
+			});
+		</script>
 	</body>
 </html>
